@@ -6,17 +6,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="university_management_system.FXMLDocumentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E0F8EC;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="university_management_system.FXMLDocumentController">
    <children>
-      <Label alignment="CENTER" prefHeight="86.0" prefWidth="600.0" style="-fx-background-color: grey;" text="University Management System" textFill="WHITE">
+      <Label alignment="CENTER" prefHeight="86.0" prefWidth="600.0" style="-fx-background-color: #B8E4C9;" text="University Management System">
          <font>
-            <Font size="33.0" />
+            <Font name="System Bold" size="33.0" />
          </font>
       </Label>
       <TextField fx:id="studentid" alignment="CENTER" layoutX="175.0" layoutY="120.0" prefHeight="48.0" prefWidth="250.0" promptText="Enter your student id" />
       <TextField fx:id="password" alignment="CENTER" layoutX="175.0" layoutY="192.0" prefHeight="48.0" prefWidth="250.0" promptText="Enter your password" />
-      <Button fx:id="btn1" layoutX="269.0" layoutY="263.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="62.0" text="Login" />
-      <Button fx:id="btn2" layoutX="225.0" layoutY="309.0" mnemonicParsing="false" onAction="#createaccount" prefHeight="26.0" prefWidth="150.0" text="Create a new account..!" />
+      <Button fx:id="btn1" layoutX="269.0" layoutY="263.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="62.0" style="-fx-background-color: #B8E4C9;" text="Login" />
    </children>
 </AnchorPane>
