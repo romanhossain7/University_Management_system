@@ -6,6 +6,8 @@ import java.sql.*;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,13 +23,16 @@ public class Student_dashboardController implements Initializable {
     @FXML private TableView<Student> st_list;
     @FXML private TextField st_name, st_id, st_dept, st_sec, st_phn, st_advisor;
     @FXML private Button btn5, btn6, btn7, btn8;
+    @FXML private TextField searchfield;
 
     ObservableList<Student> studentList = FXCollections.observableArrayList();
+    private FilteredList<Student> filteredList;
 
     Connection conn;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // Table Columns Setup
         TableColumn<Student, String> colName = new TableColumn<>("Name");
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
 
@@ -48,9 +53,42 @@ public class Student_dashboardController implements Initializable {
 
         st_list.getColumns().addAll(colName, colId, colDept, colSec, colPhone, colAdvisor);
 
+        // DB connection & load data
         conn = DatabaseConnection.getConnection();
         loadStudents();
 
+        // FilteredList & Live Search setup
+        filteredList = new FilteredList<>(studentList, p -> true);
+
+        searchfield.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredList.setPredicate(student -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (student.getName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (student.getId().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (student.getDept().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (student.getSec().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (student.getPhone().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (student.getAdvisor().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                }
+                return false; // No match found
+            });
+        });
+
+        SortedList<Student> sortedList = new SortedList<>(filteredList);
+        sortedList.comparatorProperty().bind(st_list.comparatorProperty());
+        st_list.setItems(sortedList);
+
+        // Selection listener to populate fields on row click
         st_list.getSelectionModel().selectedItemProperty().addListener((obs, oldSel, newSel) -> {
             if (newSel != null) {
                 st_name.setText(newSel.getName());
@@ -78,7 +116,6 @@ public class Student_dashboardController implements Initializable {
                     rs.getString("advisor")
                 ));
             }
-            st_list.setItems(studentList);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -188,6 +225,7 @@ public class Student_dashboardController implements Initializable {
         st_sec.clear();
         st_phn.clear();
         st_advisor.clear();
+        searchfield.clear();
     }
 
     private void showAlert(Alert.AlertType type, String title, String message) {

@@ -7,23 +7,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="475.0" prefWidth="815.0" style="-fx-background-color: #E0F8EC;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="university_management_system.Student_dashboardController">
+<AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="815.0" style="-fx-background-color: #E0F8EC;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="university_management_system.Student_dashboardController">
    <children>
       <Label alignment="CENTER" prefHeight="86.0" prefWidth="815.0" style="-fx-background-color: #B8E4C9;" text="University Management System" textAlignment="JUSTIFY" textFill="#1e1212">
          <font>
             <Font name="System Bold" size="33.0" />
          </font>
       </Label>
-      <TableView fx:id="st_list" layoutX="309.0" layoutY="107.0" prefHeight="244.0" prefWidth="491.0" />
+      <TableView fx:id="st_list" layoutX="309.0" layoutY="192.0" prefHeight="244.0" prefWidth="491.0" />
       <TextField fx:id="st_name" alignment="CENTER" layoutX="23.0" layoutY="106.0" prefHeight="38.0" prefWidth="250.0" promptText="Enter Student Name" />
       <TextField fx:id="st_id" alignment="CENTER" layoutX="23.0" layoutY="159.0" prefHeight="38.0" prefWidth="250.0" promptText="Student Id" />
       <TextField fx:id="st_dept" alignment="CENTER" layoutX="23.0" layoutY="210.0" prefHeight="38.0" prefWidth="250.0" promptText="Student Department" />
       <TextField fx:id="st_sec" alignment="CENTER" layoutX="23.0" layoutY="266.0" prefHeight="38.0" prefWidth="250.0" promptText="Student Section" />
       <TextField fx:id="st_phn" alignment="CENTER" layoutX="23.0" layoutY="314.0" prefHeight="38.0" prefWidth="250.0" promptText="Student Phone" />
       <TextField fx:id="st_advisor" alignment="CENTER" layoutX="23.0" layoutY="370.0" prefHeight="38.0" prefWidth="250.0" promptText="Student Advisor Name" />
-      <Button fx:id="btn5" layoutX="309.0" layoutY="376.0" mnemonicParsing="false" onAction="#add_student" prefHeight="26.0" prefWidth="156.0" style="-fx-background-color: #B8E4C9;" text="Add Student Information" />
-      <Button fx:id="btn6" layoutX="489.0" layoutY="376.0" mnemonicParsing="false" onAction="#update_student" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #B8E4C9;" text="Update" />
-      <Button fx:id="btn7" layoutX="588.0" layoutY="376.0" mnemonicParsing="false" onAction="#delete_student" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #B8E4C9;" text="Delete" />
-      <Button fx:id="btn8" layoutX="690.0" layoutY="376.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #B8E4C9;" text="Logout" />
+      <Button fx:id="btn5" layoutX="309.0" layoutY="446.0" mnemonicParsing="false" onAction="#add_student" prefHeight="26.0" prefWidth="156.0" style="-fx-background-color: #B8E4C9;" text="Add Student Information" />
+      <Button fx:id="btn6" layoutX="491.0" layoutY="446.0" mnemonicParsing="false" onAction="#update_student" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #B8E4C9;" text="Update" />
+      <Button fx:id="btn7" layoutX="594.0" layoutY="446.0" mnemonicParsing="false" onAction="#delete_student" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #B8E4C9;" text="Delete" />
+      <Button fx:id="btn8" layoutX="699.0" layoutY="446.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #B8E4C9;" text="Logout" />
+      <TextField fx:id="searchfield" layoutX="309.0" layoutY="122.0" prefHeight="53.0" prefWidth="272.0" promptText="Search by student id or name" />
    </children>
 </AnchorPane>
